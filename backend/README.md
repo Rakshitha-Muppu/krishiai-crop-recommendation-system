@@ -1,16 +1,20 @@
 # Backend
 
-This folder contains the backend logic of the Agriculture Yield Prediction System.
+This folder contains the backend logic of the Agriculture Yield Prediction and Crop Recommendation System.
 
-Technologies:
+## Technologies Used
 
 * Python
 * Flask
 
-Responsibilities:
+## Responsibilities
 
-* Receive user inputs
-* Process CSV files
-* Connect with machine learning model
-* Send prediction results to frontend
-* Connect with Azure SQL Database
+* Receive user inputs from the frontend
+* Process uploaded CSV files
+* Perform data validation and preprocessing
+* Connect with machine learning models
+* Generate crop yield predictions
+* Generate crop recommendations
+* Store prediction results in Azure SQL Database
+* Send prediction results to the frontend
+
