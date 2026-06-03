@@ -2,11 +2,11 @@
 
 ## Project Overview
 
-This project is a Data + AI + Cloud-based system designed to help predict crop yield and recommend suitable crops based on agricultural conditions.
+This project is a Data, AI, and Cloud-based system designed to predict crop yield and recommend suitable crops based on agricultural conditions.
 
-It uses machine learning techniques along with a data processing pipeline to analyze agricultural data and generate meaningful predictions.
+The system uses machine learning techniques along with a data processing pipeline to analyze agricultural data and generate meaningful predictions.
 
-Users can either manually enter agricultural details or upload CSV files for analysis. The system processes the data, applies machine learning models, and returns predictions.
+Users can either manually enter agricultural details or upload CSV files for analysis. The system processes the data, applies machine learning models, stores results in the cloud database, and displays predictions through a dashboard.
 
 ## Problem Statement
 
@@ -14,23 +14,37 @@ Farmers often lack data-driven insights regarding:
 
 * Expected crop production
 * Suitable crops for specific environmental conditions
-* Efficient use of agricultural resources
+* Efficient utilization of agricultural resources
 
-This leads to reduced productivity and poor crop planning decisions.
+This can lead to reduced productivity and poor crop planning decisions.
 
 ## Proposed Solution
 
-The system provides a complete data-driven solution:
+The system provides a complete Data, AI, and Cloud solution by:
 
-* Collects agricultural data through manual input or CSV file upload
-* Cleans and processes agricultural data using a data pipeline
-* Applies machine learning models for crop recommendation and yield prediction
-* Stores prediction records in Azure SQL Database
-* Displays results through an agricultural data dashboard
+* Collecting agricultural data through manual input or CSV upload
+* Cleaning and processing agricultural data
+* Applying machine learning models for crop recommendation and yield prediction
+* Storing prediction results in Azure SQL Database
+* Displaying insights through dashboards and visualizations
+
+## Project Architecture
+
+Frontend (React) → Backend API (Flask) → Machine Learning Models → Azure SQL Database
+
+Users provide agricultural data through manual input forms or CSV uploads. The backend processes the data, interacts with machine learning models, stores prediction history in Azure SQL Database, and returns results to the frontend dashboard.
+
+## Key Features
+
+* Manual agricultural data input
+* CSV dataset upload
+* Data cleaning and preprocessing
+* Crop recommendation
+* Crop yield prediction
+* Prediction history storage
+* Dashboard-based visualization
 
 ## User Inputs
-
-Users can provide data in two ways:
 
 ### Manual Input
 
@@ -42,19 +56,20 @@ Users can provide data in two ways:
 
 ### CSV File Upload
 
-Users can upload datasets containing agricultural records for analysis and prediction.
+* Agricultural datasets in CSV format for batch analysis and prediction
 
 ## System Outputs
 
 * Predicted Crop Yield
 * Recommended Crop
-* Agricultural Data Dashboard
+* Data Insights Dashboard
 * Stored Prediction History
 
 ## Technologies Used
 
 ### Frontend
 
+* React
 * HTML
 * CSS
 * JavaScript
@@ -68,7 +83,7 @@ Users can upload datasets containing agricultural records for analysis and predi
 
 * Pandas
 * NumPy
-* Scikit-learn
+* Scikit-Learn
 
 ### Database (Cloud)
 
@@ -80,14 +95,15 @@ Users can upload datasets containing agricultural records for analysis and predi
 
 ## Data Pipeline Flow
 
-Raw Data → Data Cleaning → Feature Processing → Machine Learning Model → Prediction → Cloud Storage
+Raw Data → Data Validation → Data Cleaning → Feature Engineering → Machine Learning Models → Prediction → Azure SQL Storage → Dashboard Visualization
 
 ## Expected Benefits
 
 * Supports data-driven farming decisions
 * Improves crop planning and management
 * Helps estimate agricultural production
-* Demonstrates real-world integration of Data, AI, and Cloud technologies
+* Demonstrates practical integration of Data, AI, and Cloud technologies
+* Demonstrates practical implementation of Data Engineering, Artificial Intelligence, and Cloud Computing concepts
 
 ## Future Enhancements
 
@@ -96,4 +112,3 @@ Raw Data → Data Cleaning → Feature Processing → Machine Learning Model →
 * Fertilizer Recommendation System
 * Mobile Application Support
 * Advanced Agricultural Analytics Dashboard
-
