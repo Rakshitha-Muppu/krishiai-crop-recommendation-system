@@ -44,4 +44,27 @@ def history(user_id):
 
     predictions = get_user_predictions(user_id)
 
+    for prediction in predictions:
+
+        prediction["created_at"] = (
+            prediction["created_at"]
+            .strftime("%d/%m/%Y")
+        )
+
     return jsonify(predictions)
+
+@predict_bp.route(
+    "/latest_prediction/<int:user_id>",
+    methods=["GET"]
+)
+def latest_prediction(user_id):
+
+    predictions = get_user_predictions(user_id)
+
+    if len(predictions) == 0:
+
+        return jsonify({})
+
+    return jsonify(
+        predictions[0]
+    )

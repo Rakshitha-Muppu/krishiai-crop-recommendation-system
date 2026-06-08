@@ -1,418 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crop Recommendation | KrishiAI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation | KrishiAI</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/crop_recommendation.css">
 
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'DM Sans',sans-serif;
-    background:linear-gradient(
-    135deg,
-    #e8f5e3 0%,
-    #f0f7ed 40%,
-    #e3f0e8 100%
-    );
-    min-height:100vh;
-    padding:30px;
-}
-
-.container{
-    max-width:1100px;
-    margin:auto;
-}
-
-/* HEADER */
-
-.main-header{
-    background:#1a4d2e;
-    color:white;
-    padding:20px 30px;
-    border-radius:20px;
-    margin-bottom:20px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-family:'Playfair Display',serif;
-    font-size:30px;
-    font-weight:600;
-}
-
-.nav-links{
-    display:flex;
-    gap:25px;
-}
-
-.nav-links a{
-    text-decoration:none;
-    color:rgba(255,255,255,0.8);
-    font-size:15px;
-    font-weight:500;
-    transition:0.3s;
-    padding-bottom:4px;
-}
-
-.nav-links a:hover{
-    color:white;
-}
-
-.nav-links a.active{
-    color:white;
-    border-bottom:2px solid #5cb85c;
-}
-
-.user-section{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.user-name{
-    font-size:14px;
-}
-
-.logout-btn{
-    background:white;
-    color:#1a4d2e;
-    text-decoration:none;
-    padding:8px 14px;
-    border-radius:10px;
-    font-weight:500;
-    transition:0.3s;
-}
-
-.logout-btn:hover{
-    background:#f3f3f3;
-}
-
-/* PAGE TITLE */
-
-.page-title{
-    text-align:center;
-    color:#1a4d2e;
-    margin-bottom:20px;
-    font-family:'Playfair Display',serif;
-    font-size:32px;
-}
-
-/* CARD */
-
-.recommend-card{
-    background:white;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.05);
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-.form-group{
-    display:flex;
-    flex-direction:column;
-}
-
-.form-group label{
-    margin-bottom:8px;
-    color:#1a4d2e;
-    font-weight:500;
-}
-
-.form-group input,
-.form-group select{
-    padding:12px;
-    border:1px solid #ddd;
-    border-radius:12px;
-    font-size:15px;
-}
-
-.form-group input:focus,
-.form-group select:focus{
-    outline:none;
-    border-color:#1a4d2e;
-}
-
-/* BUTTON */
-
-.btn{
-    width:100%;
-    margin-top:25px;
-    background:#1a4d2e;
-    color:white;
-    border:none;
-    padding:16px;
-    border-radius:14px;
-    font-size:16px;
-    font-weight:500;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#256038;
-    transform:translateY(-3px);
-}
-
-/* RESULTS */
-
-.result-box{
-    display:none;
-    margin-top:25px;
-}
-
-.result-box h3{
-    color:#1a4d2e;
-    margin-bottom:15px;
-    font-family:'Playfair Display',serif;
-    font-size:24px;
-}
-
-.crop-item{
-    background:#f4faf2;
-    padding:15px 18px;
-    border-radius:14px;
-    margin-bottom:12px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.crop-name{
-    font-weight:500;
-    color:#1a4d2e;
-}
-
-.score{
-    color:#2e7d32;
-    font-weight:600;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-.main-header{
-    flex-direction:column;
-    gap:15px;
-    text-align:center;
-}
-
-.nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.form-grid{
-    grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:600px){
-
-body{
-    padding:15px;
-}
-
-.logo{
-    font-size:26px;
-}
-
-.page-title{
-    font-size:26px;
-}
-
-}
-
-</style>
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-<header class="main-header">
+        <header class="main-header">
 
-    <div class="logo">
-        🌾 KrishiAI
-    </div>
+            <div class="logo">
+                🌾 KrishiAI
+            </div>
 
-    <nav class="nav-links">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="crop_recommendation.html" class="active">Crop Recommendation</a>
-        <a href="yield_prediction.html">Yield Prediction</a>
-        <a href="history.html">History</a>
-    </nav>
+            <nav class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="crop_recommendation.html" class="active">Crop Recommendation</a>
+                <a href="yield_prediction.html">Yield Prediction</a>
+                <a href="history.html">History</a>
+            </nav>
 
-    <div class="user-section">
-        <span class="user-name">👤 Ramesh Kumar</span>
-        <a href="signup_login.html" class="logout-btn">Logout</a>
-    </div>
+            <div class="user-section">
+                <span class="user-name">👤 Ramesh Kumar</span>
+                <a href="signup_login.html" class="logout-btn">Logout</a>
+            </div>
 
-</header>
+        </header>
 
-<h1 class="page-title">
-    🌱 Crop Recommendation System
-</h1>
+        <h1 class="page-title">
+            🌱 Crop Recommendation System
+        </h1>
 
-<div class="recommend-card">
+        <div class="recommend-card">
 
-    <div class="form-grid">
+            <div class="form-grid">
 
-        <div class="form-group">
-            <label>Location</label>
-            <input
-                type="text"
-                id="location"
-                value="Warangal, Telangana"
-                placeholder="Enter Location">
-        </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="location" placeholder="Enter Location" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Temperature (°C)</label>
+                    <input type="number" id="temperature" value="32" readonly>
+                </div>
 
-        <div class="form-group">
-            <label>Temperature (°C)</label>
-            <input
-                type="number"
-                id="temperature"
-                value="32"
-                readonly>
-        </div>
+                <div class="form-group">
+                    <label>Humidity (%)</label>
+                    <input type="number" id="humidity" value="68" readonly>
+                </div>
 
-        <div class="form-group">
-            <label>Humidity (%)</label>
-            <input
-                type="number"
-                id="humidity"
-                value="68"
-                readonly>
-        </div>
+                <div class="form-group">
+                    <label>Rainfall (mm)</label>
+                    <input type="number" id="rainfall" value="120" readonly>
+                </div>
 
-        <div class="form-group">
-            <label>Rainfall (mm)</label>
-            <input
-                type="number"
-                id="rainfall"
-                value="120"
-                readonly>
-        </div>
+                <div class="form-group">
+                    <label>Soil Type</label>
+                    <select id="soil">
+                        <option>Select Soil Type</option>
+                        <option>Black Soil</option>
+                        <option>Red Soil</option>
+                        <option>Clay Soil</option>
+                        <option>Loamy Soil</option>
+                        <option>Sandy Soil</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Season</label>
 
-        <div class="form-group">
-            <label>Soil Type</label>
-            <select id="soil">
-                <option>Select Soil Type</option>
-                <option>Black Soil</option>
-                <option>Red Soil</option>
-                <option>Clay Soil</option>
-                <option>Loamy Soil</option>
-                <option>Sandy Soil</option>
-            </select>
-        </div>
+                    <select id="season">
+                        <option value="">Select Season</option>
+                        <option>Kharif</option>
+                        <option>Rabi</option>
+                        <option>Zaid</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Previous Crop</label>
+                    <input type="text" id="crop_input" placeholder="Enter previous crop">
+                </div>
 
-    </div>
+                <div class="form-group">
+                    <label>Land Acres</label>
+                    <input type="number" id="land_acres" placeholder="Enter land acres">
+                </div>
 
-    <button class="btn" onclick="recommendCrop()">
-        🌾 Get Recommendations
-    </button>
+                <div class="form-group">
+                    <label>Land Type</label>
+                    <select id="land_type">
+                        <option value="">Select Land Type</option>
+                        <option>Owned</option>
+                        <option>Leased</option>
+                    </select>
+                </div>
+            </div>
 
-    <div class="result-box" id="resultBox">
+            <button class="btn" onclick="recommendCrop()">
+                🌾 Get Recommendations
+            </button>
 
-        <h3>Top Recommended Crops</h3>
+            <div class="result-box" id="resultBox">
 
-        <div id="results"></div>
+                <h3>Top Recommended Crops</h3>
 
-    </div>
+                <div id="results"></div>
 
-</div>
-
-</div>
-
-<script>
-
-function recommendCrop(){
-
-    let soil = document.getElementById("soil").value;
-
-    let crops = [];
-
-    if(soil === "Black Soil"){
-        crops = [
-            ["🥇 Cotton","95% Suitable"],
-            ["🥈 Soybean","91% Suitable"],
-            ["🥉 Sorghum","87% Suitable"]
-        ];
-    }
-
-    else if(soil === "Red Soil"){
-        crops = [
-            ["🥇 Groundnut","94% Suitable"],
-            ["🥈 Millets","90% Suitable"],
-            ["🥉 Pulses","85% Suitable"]
-        ];
-    }
-
-    else if(soil === "Clay Soil"){
-        crops = [
-            ["🥇 Rice","97% Suitable"],
-            ["🥈 Sugarcane","92% Suitable"],
-            ["🥉 Wheat","88% Suitable"]
-        ];
-    }
-
-    else if(soil === "Loamy Soil"){
-        crops = [
-            ["🥇 Wheat","96% Suitable"],
-            ["🥈 Maize","91% Suitable"],
-            ["🥉 Vegetables","89% Suitable"]
-        ];
-    }
-
-    else if(soil === "Sandy Soil"){
-        crops = [
-            ["🥇 Watermelon","94% Suitable"],
-            ["🥈 Potato","88% Suitable"],
-            ["🥉 Groundnut","84% Suitable"]
-        ];
-    }
-    else{
-        alert("Please select a soil type");
-        return;
-    }
-
-    let html = "";
-
-    crops.forEach(function(crop){
-
-        html += `
-        <div class="crop-item">
-            <span class="crop-name">${crop[0]}</span>
-            <span class="score">${crop[1]}</span>
-        </div>
-        `;
-
-    });
-
-    document.getElementById("results").innerHTML = html;
-    document.getElementById("resultBox").style.display = "block";
-}
-
-</script>
-
+            </div>
+            <script src="js/crop_recommendation.js"></script>
 </body>
+
 </html>

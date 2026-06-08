@@ -1,6 +1,4 @@
 from database.db_connection import get_connection
-
-
 def create_prediction(
     user_id,
     soil_type,

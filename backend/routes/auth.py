@@ -88,6 +88,10 @@ def login():
         {
             "message": "Login successful",
             "user_id": user["user_id"],
-            "full_name": user["full_name"]
+            "full_name": user["full_name"],
+            "state": user["state"],
+            "district": user["district"],
+            "land_acres": user["land_acres"],
+            "land_type": user["land_type"]
         }
     )

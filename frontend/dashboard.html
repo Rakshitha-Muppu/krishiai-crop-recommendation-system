@@ -8,254 +8,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'DM Sans',sans-serif;
-background:linear-gradient(
-135deg,
-#e8f5e3 0%,
-#f0f7ed 40%,
-#e3f0e8 100%
-);
-min-height:100vh;
-padding:30px;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-}
-
-/* HEADER */
-
-.main-header{
-background:#1a4d2e;
-color:white;
-padding:20px 30px;
-border-radius:20px;
-margin-bottom:20px;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-family:'Playfair Display',serif;
-font-size:30px;
-font-weight:600;
-}
-
-.nav-links{
-display:flex;
-gap:25px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:rgba(255,255,255,0.8);
-font-size:15px;
-font-weight:500;
-transition:0.3s;
-padding-bottom:4px;
-}
-
-.nav-links a:hover{
-color:white;
-}
-
-.nav-links a.active{
-color:white;
-border-bottom:2px solid #5cb85c;
-}
-
-.user-section{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.user-name{
-font-size:14px;
-}
-
-.logout-btn{
-background:white;
-color:#1a4d2e;
-text-decoration:none;
-padding:8px 14px;
-border-radius:10px;
-font-weight:500;
-transition:0.3s;
-}
-
-.logout-btn:hover{
-background:#f3f3f3;
-}
-
-/* WELCOME CARD */
-
-.welcome-card{
-background:white;
-padding:15px 25px 25px 25px;
-border-radius:18px;
-margin-bottom:20px;
-box-shadow:0 6px 20px rgba(0,0,0,0.05);
-}
-
-.welcome-card h2{
-color:#1a4d2e;
-font-size:30px;
-margin-bottom:8px;
-font-family:'Playfair Display',serif;
-}
-
-.location{
-color:#666;
-font-size:15px;
-line-height:1.8;
-}
-
-/* WEATHER STATS */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
-margin-bottom:20px;
-}
-
-.stat-card{
-background:white;
-padding:22px;
-border-radius:18px;
-text-align:center;
-box-shadow:0 6px 20px rgba(0,0,0,0.05);
-
-transition:
-transform 0.3s ease,
-box-shadow 0.3s ease;
-}
-
-.stat-card:hover{
-transform:translateY(-8px);
-box-shadow:0 15px 35px rgba(26,77,46,0.12);
-}
-
-.stat-card h3{
-font-size:34px;
-color:#1a4d2e;
-margin-bottom:5px;
-}
-
-.stat-card p{
-color:#777;
-font-size:14px;
-}
-
-/* ACTION BUTTONS */
-
-.actions{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
-margin-bottom:20px;
-}
-
-.action-btn{
-background:#1a4d2e;
-color:white;
-border:none;
-padding:16px;
-border-radius:14px;
-font-size:16px;
-font-weight:500;
-cursor:pointer;
-transition:0.3s;
-}
-
-.action-btn:hover{
-background:#256038;
-transform:translateY(-3px);
-}
-
-/* HISTORY */
-
-.history{
-background:white;
-padding:20px;
-border-radius:18px;
-box-shadow:0 6px 20px rgba(0,0,0,0.05);
-}
-
-.history h3{
-color:#1a4d2e;
-margin-bottom:15px;
-font-size:24px;
-font-family:'Playfair Display',serif;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th{
-background:#f4faf2;
-padding:12px;
-text-align:left;
-color:#1a4d2e;
-}
-
-td{
-padding:12px;
-border-top:1px solid #eee;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-.main-header{
-flex-direction:column;
-gap:15px;
-text-align:center;
-}
-
-.nav-links{
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.actions{
-grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:600px){
-
-body{
-padding:15px;
-}
-
-.welcome-card h2{
-font-size:24px;
-}
-
-.logo{
-font-size:26px;
-}
-
-}
-
-</style>
+<link rel="stylesheet" href="css/dashboard.css">
 </head>
 
 <body>
@@ -283,73 +36,62 @@ font-size:26px;
 </header>
 
 <div class="welcome-card">
-<h2>Welcome, Ramesh Kumar 👋</h2>
+    <h2>Welcome, Ramesh Kumar 👋</h2>
 
-<div class="location">
-📍 Telangana > Warangal<br>
-🌱 5 Acres • Owned Land
-</div>
+    <div class="location" id="user-location"></div>
 </div>
 
 <div class="stats">
 
-<div class="stat-card">
-<h3>32°C</h3>
-<p>🌡 Temperature</p>
-</div>
+    <div class="stat-card">
+        <h3 id="temperatureCard">32°C</h3>
+        <p>🌡 Temperature</p>
+    </div>
 
-<div class="stat-card">
-<h3>68%</h3>
-<p>💧 Humidity</p>
-</div>
+    <div class="stat-card">
+        <h3 id="humidityCard">68%</h3>
+        <p>💧 Humidity</p>
+    </div>
 
-<div class="stat-card">
-<h3>120 mm</h3>
-<p>🌧 Rainfall</p>
-</div>
+    <div class="stat-card">
+        <h3 id="rainfallCard">120 mm</h3>
+        <p>🌧 Rainfall</p>
+    </div>
 
 </div>
 
 <div class="actions">
 
-<button class="action-btn">
-🌾 Recommend Best Crop
-</button>
+    <button class="action-btn" onclick="window.location.href='crop_recommendation.html'">
+        🌾 Recommend Best Crop
+    </button>
 
-<button class="action-btn">
-📈 Predict Yield
-</button>
+    <button class="action-btn" onclick="window.location.href='yield_prediction.html'">
+        📈 Predict Yield
+    </button>
 
 </div>
 
 <div class="history">
 
-<h3>Recent Predictions</h3>
+    <h3>Recent Predictions</h3>
 
-<table>
-<tr>
-<th>Crop</th>
-<th>Yield</th>
-<th>Date</th>
-</tr>
-
-<tr>
-<td>Rice</td>
-<td>3.8 Tons</td>
-<td>04-Jun-2026</td>
-</tr>
-
-<tr>
-<td>Cotton</td>
-<td>2.1 Tons</td>
-<td>28-May-2026</td>
-</tr>
-
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Crop</th>
+                <th>Yield</th>
+            </tr>
+        </thead>
+        <tbody id="recentPredictionsTable">
+            <!-- Rows will be populated dynamically -->
+        </tbody>
+    </table>
 
 </div>
 
 </div>
-
+<script src="js/dashboard.js"></script>
 </body>
 </html>

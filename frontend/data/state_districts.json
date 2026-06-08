@@ -1,0 +1,108 @@
+{
+ "Telangana": [
+  "Adilabad",
+  "Karimnagar",
+  "Khammam",
+  "Mahabubnagar",
+  "Medak",
+  "Nalgonda",
+  "Nizamabad",
+  "Sangareddy",
+  "Siddipet",
+  "Warangal",
+  "Hanamkonda"
+],
+
+"Andhra Pradesh": [
+  "Anantapur",
+  "Chittoor",
+  "East Godavari",
+  "Guntur",
+  "Krishna",
+  "Kurnool",
+  "Nellore",
+  "Prakasam",
+  "Srikakulam",
+  "Visakhapatnam",
+  "Vizianagaram",
+  "West Godavari",
+  "YSR Kadapa"
+] ,
+
+  "Tamil Nadu": [
+    "Chennai",
+    "Coimbatore",
+    "Erode",
+    "Madurai",
+    "Salem",
+    "Thanjavur",
+    "Tirunelveli",
+    "Vellore"
+  ],
+
+  "Maharashtra": [
+    "Ahmednagar",
+    "Aurangabad",
+    "Kolhapur",
+    "Nagpur",
+    "Nashik",
+    "Pune",
+    "Satara",
+    "Solapur"
+  ]
+  ,
+  "Kerala": [
+  "Alappuzha",
+  "Ernakulam",
+  "Kannur",
+  "Kasaragod",
+  "Kozhikode",
+  "Malappuram",
+  "Palakkad",
+  "Thrissur",
+  "Wayanad"
+],
+"Punjab": [
+  "Amritsar",
+  "Bathinda",
+  "Firozpur",
+  "Gurdaspur",
+  "Jalandhar",
+  "Ludhiana",
+  "Patiala",
+  "Sangrur"
+],
+"Haryana": [
+  "Ambala",
+  "Faridabad",
+  "Gurugram",
+  "Hisar",
+  "Jind",
+  "Karnal",
+  "Kurukshetra",
+  "Panipat",
+  "Rohtak",
+  "Sonipat"
+],
+"Karnataka": [
+  "Belagavi",
+  "Ballari",
+  "Dharwad",
+  "Kalaburagi",
+  "Mysuru",
+  "Raichur",
+  "Shivamogga",
+  "Tumakuru"
+],
+"Gujarat": [
+  "Ahmedabad",
+  "Anand",
+  "Bharuch",
+  "Bhavnagar",
+  "Jamnagar",
+  "Rajkot",
+  "Surat",
+  "Vadodara"
+]
+
+}

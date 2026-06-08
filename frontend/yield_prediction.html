@@ -1,394 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Yield Prediction | KrishiAI</title>
+    <title>Yield Prediction | KrishiAI</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/yield_prediction.css">
 
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'DM Sans',sans-serif;
-    background:linear-gradient(
-    135deg,
-    #e8f5e3 0%,
-    #f0f7ed 40%,
-    #e3f0e8 100%
-    );
-    min-height:100vh;
-    padding:30px;
-}
-
-.container{
-    max-width:1100px;
-    margin:auto;
-}
-
-/* HEADER */
-
-.main-header{
-    background:#1a4d2e;
-    color:white;
-    padding:20px 30px;
-    border-radius:20px;
-    margin-bottom:20px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-family:'Playfair Display',serif;
-    font-size:30px;
-    font-weight:600;
-}
-
-.nav-links{
-    display:flex;
-    gap:25px;
-}
-
-.nav-links a{
-    text-decoration:none;
-    color:rgba(255,255,255,0.8);
-    font-size:15px;
-    font-weight:500;
-    transition:0.3s;
-    padding-bottom:4px;
-}
-
-.nav-links a:hover{
-    color:white;
-}
-
-.nav-links a.active{
-    color:white;
-    border-bottom:2px solid #5cb85c;
-}
-
-.user-section{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.user-name{
-    font-size:14px;
-}
-
-.logout-btn{
-    background:white;
-    color:#1a4d2e;
-    text-decoration:none;
-    padding:8px 14px;
-    border-radius:10px;
-    font-weight:500;
-}
-
-/* PAGE */
-
-.page-title{
-    text-align:center;
-    color:#1a4d2e;
-    margin-bottom:20px;
-    font-size:32px;
-    font-family:'Playfair Display',serif;
-}
-
-.predict-card{
-    background:white;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.05);
-}
-
-/* INFO BOXES */
-
-.info-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-    margin-bottom:25px;
-}
-
-.info-box{
-    background:#f4faf2;
-    padding:18px;
-    border-radius:14px;
-}
-
-.info-box strong{
-    color:#1a4d2e;
-    display:block;
-    margin-bottom:5px;
-}
-
-/* FORM */
-
-.form-group{
-    margin-top:15px;
-}
-
-.form-group label{
-    display:block;
-    margin-bottom:8px;
-    color:#1a4d2e;
-    font-weight:500;
-}
-
-.form-group select{
-    width:100%;
-    padding:12px;
-    border:1px solid #ddd;
-    border-radius:12px;
-    font-size:15px;
-}
-
-.btn{
-    width:100%;
-    margin-top:25px;
-    background:#1a4d2e;
-    color:white;
-    border:none;
-    padding:16px;
-    border-radius:14px;
-    font-size:16px;
-    font-weight:500;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#256038;
-    transform:translateY(-3px);
-}
-
-/* RESULT */
-
-.result-box{
-    display:none;
-    margin-top:25px;
-    background:#f4faf2;
-    border-radius:16px;
-    padding:25px;
-}
-
-.result-box h3{
-    color:#1a4d2e;
-    margin-bottom:15px;
-    font-size:24px;
-    font-family:'Playfair Display',serif;
-}
-
-.result-item{
-    margin-bottom:12px;
-    font-size:16px;
-}
-
-.result-item strong{
-    color:#1a4d2e;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-.main-header{
-    flex-direction:column;
-    gap:15px;
-    text-align:center;
-}
-
-.nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.info-grid{
-    grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:600px){
-
-body{
-    padding:15px;
-}
-
-.logo{
-    font-size:26px;
-}
-
-.page-title{
-    font-size:26px;
-}
-
-}
-
-</style>
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-<header class="main-header">
+        <header class="main-header">
 
-    <div class="logo">
-        🌾 KrishiAI
-    </div>
+            <div class="logo">
+                🌾 KrishiAI
+            </div>
 
-    <nav class="nav-links">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="crop_recommendation.html">Crop Recommendation</a>
-        <a href="yield_prediction.html" class="active">Yield Prediction</a>
-        <a href="history.html">History</a>
-    </nav>
+            <nav class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="crop_recommendation.html">Crop Recommendation</a>
+                <a href="yield_prediction.html" class="active">Yield Prediction</a>
+                <a href="history.html">History</a>
+            </nav>
 
-    <div class="user-section">
-        <span class="user-name">👤 Ramesh Kumar</span>
-        <a href="signup_login.html" class="logout-btn">Logout</a>
-    </div>
-
-</header>
-
-<h1 class="page-title">
-    📈 Yield Prediction System
-</h1>
-
-<div class="predict-card">
-
-    <div class="info-grid">
-
-        <div class="info-box">
-            <strong>📍 Location</strong>
-            Warangal, Telangana
-        </div>
-
-        <div class="info-box">
-            <strong>🌱 Land Size</strong>
-            5 Acres
-        </div>
-
-        <div class="info-box">
-            <strong>🌡 Temperature</strong>
-            32°C
-        </div>
-
-        <div class="info-box">
-            <strong>🌧 Rainfall</strong>
-            120 mm
-        </div>
-
-    </div>
-
-    <div class="form-group">
-
-        <label>Select Recommended Crop</label>
-
-        <select id="crop">
-            <option value="">Choose Crop</option>
-            <option>Rice</option>
-            <option>Cotton</option>
-            <option>Maize</option>
-            <option>Wheat</option>
-            <option>Sugarcane</option>
-        </select>
-
-    </div>
-
-    <button class="btn" onclick="predictYield()">
-        📈 Predict Yield
-    </button>
-
-    <div class="result-box" id="resultBox">
-
-        <h3>Yield Prediction Result</h3>
-
-        <div class="result-item">
-            <strong>Selected Crop:</strong>
-            <span id="cropResult"></span>
-        </div>
-
-        <div class="result-item">
-            <strong>Predicted Yield per Acre:</strong>
-            <span id="acreYield"></span>
-        </div>
-
-        <div class="result-item">
-            <strong>Estimated Production:</strong>
-            <span id="totalProduction"></span>
-        </div>
-
-        <div class="result-item">
-            <strong>Confidence Score:</strong>
-            <span id="confidence"></span>
-        </div>
-
-    </div>
-
+            <div class="user-section">
+    <span class="user-name">👤 User</span>
+    <a href="signup_login.html" class="logout-btn">Logout</a>
 </div>
 
-</div>
+        </header>
 
-<script>
+        <h1 class="page-title">
+            📈 Yield Prediction System
+        </h1>
 
-function predictYield(){
+        <div class="predict-card">
 
-    let crop = document.getElementById("crop").value;
+            <div class="info-grid">
 
-    if(crop === ""){
-        alert("Please select a crop.");
-        return;
-    }
+                <div class="info-box">
+                    <strong>📍 Location</strong>
+                    <span id="locationInfo"></span>
+                </div>
 
-    let landSize = 5;
-    let yieldPerAcre = 0;
+                <div class="info-box">
+                    <strong>🌱 Land Size</strong>
+                    <span id="landInfo"></span>
+                </div>
 
-    if(crop === "Rice"){
-        yieldPerAcre = 3.8;
-    }
-    else if(crop === "Cotton"){
-        yieldPerAcre = 2.1;
-    }
-    else if(crop === "Maize"){
-        yieldPerAcre = 3.2;
-    }
-    else if(crop === "Wheat"){
-        yieldPerAcre = 2.9;
-    }
-    else if(crop === "Sugarcane"){
-        yieldPerAcre = 5.5;
-    }
+                <div class="info-box">
+                    <strong>🌡 Temperature</strong>
+                    <span id="temperatureInfo"></span>
+                </div>
 
-    let totalProduction = (yieldPerAcre * landSize).toFixed(2);
+                <div class="info-box">
+                    <strong>🌧 Rainfall</strong>
+                    <span id="rainfallInfo"></span>
+                </div>
+                
 
-    document.getElementById("cropResult").innerHTML = crop;
+            </div>
 
-    document.getElementById("acreYield").innerHTML =
-        yieldPerAcre + " Tons / Acre";
+            <div class="form-group">
 
-    document.getElementById("totalProduction").innerHTML =
-        totalProduction + " Tons (for 5 Acres)";
+                <label>Select Recommended Crop</label>
 
-    document.getElementById("confidence").innerHTML =
-        "92%";
+                <select id="crop">
+                    <option value="">Choose Crop</option>
+                    <option>Rice</option>
+                    <option>Cotton</option>
+                    <option>Maize</option>
+                    <option>Wheat</option>
+                    <option>Sugarcane</option>
+                </select>
 
-    document.getElementById("resultBox").style.display = "block";
-}
+            </div>
 
-</script>
+            <button class="btn" onclick="predictYield()">
+                📈 Predict Yield
+            </button>
 
+            <div class="result-box" id="resultBox">
+
+                <h3>Yield Prediction Result</h3>
+
+                <div class="result-item">
+                    <strong>Selected Crop:</strong>
+                    <span id="cropResult"></span>
+                </div>
+
+                <div class="result-item">
+                    <strong>Predicted Yield per Acre:</strong>
+                    <span id="acreYield"></span>
+                </div>
+
+                <div class="result-item">
+                    <strong>Estimated Production:</strong>
+                    <span id="totalProduction"></span>
+                </div>
+
+                <div class="result-item">
+                    <strong>Confidence Score:</strong>
+                    <span id="confidence"></span>
+                </div>
+
+            </div>
+            <script src="js/yield_prediction.js"></script>
 </body>
+
 </html>

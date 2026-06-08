@@ -7,185 +7,7 @@
 <title>KrishiAI - Prediction History</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'DM Sans',sans-serif;
-background:linear-gradient(
-135deg,
-#e8f5e3 0%,
-#f0f7ed 40%,
-#e3f0e8 100%
-);
-min-height:100vh;
-padding:30px;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-}
-
-/* HEADER */
-
-.main-header{
-background:#1a4d2e;
-color:white;
-padding:20px 30px;
-border-radius:20px;
-margin-bottom:25px;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-family:'Playfair Display',serif;
-font-size:30px;
-font-weight:600;
-}
-
-.nav-links{
-display:flex;
-gap:25px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:rgba(255,255,255,0.8);
-font-size:15px;
-font-weight:500;
-padding-bottom:4px;
-transition:0.3s;
-}
-
-.nav-links a:hover{
-color:white;
-}
-
-.nav-links a.active{
-color:white;
-border-bottom:2px solid #5cb85c;
-}
-
-.user-section{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.user-name{
-font-size:14px;
-}
-
-.logout-btn{
-background:white;
-color:#1a4d2e;
-text-decoration:none;
-padding:8px 14px;
-border-radius:10px;
-font-weight:500;
-}
-
-.logout-btn:hover{
-background:#f3f3f3;
-}
-
-/* PAGE TITLE */
-
-.page-title{
-background:white;
-padding:25px;
-border-radius:18px;
-margin-bottom:20px;
-box-shadow:0 6px 20px rgba(0,0,0,0.05);
-}
-
-.page-title h2{
-font-family:'Playfair Display',serif;
-font-size:30px;
-color:#1a4d2e;
-margin-bottom:8px;
-}
-
-.page-title p{
-color:#666;
-}
-
-/* HISTORY TABLE */
-
-.history-card{
-background:white;
-padding:25px;
-border-radius:18px;
-box-shadow:0 6px 20px rgba(0,0,0,0.05);
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th{
-background:#f4faf2;
-color:#1a4d2e;
-padding:14px;
-text-align:left;
-}
-
-td{
-padding:14px;
-border-top:1px solid #eee;
-}
-
-tr:hover{
-background:#fafdf9;
-}
-
-/* STATUS BADGES */
-
-.badge{
-padding:6px 12px;
-border-radius:20px;
-font-size:13px;
-font-weight:500;
-}
-
-.success{
-background:#e8f7ec;
-color:#1a7a3b;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-.main-header{
-flex-direction:column;
-gap:15px;
-text-align:center;
-}
-
-.nav-links{
-flex-wrap:wrap;
-justify-content:center;
-}
-
-table{
-font-size:14px;
-}
-
-}
-
-</style>
+<link rel="stylesheet" href="css/history.css">
 </head>
 
 <body>
@@ -221,51 +43,25 @@ font-size:14px;
 
 <table>
 
+<thead>
 <tr>
 <th>Date</th>
 <th>Crop</th>
 <th>Recommended Yield</th>
-<th>Total Production</th>
-<th>Status</th>
+<th>Location</th>
+<th>Season</th>
 </tr>
+</thead>
 
-<tr>
-<td>06-Jun-2026</td>
-<td>Rice 🌾</td>
-<td>4.2 Tons/Acre</td>
-<td>21 Tons</td>
-<td><span class="badge success">Completed</span></td>
-</tr>
+<tbody id="historyTable">
 
-<tr>
-<td>02-Jun-2026</td>
-<td>Cotton 🧵</td>
-<td>2.8 Tons/Acre</td>
-<td>14 Tons</td>
-<td><span class="badge success">Completed</span></td>
-</tr>
-
-<tr>
-<td>28-May-2026</td>
-<td>Maize 🌽</td>
-<td>3.5 Tons/Acre</td>
-<td>17.5 Tons</td>
-<td><span class="badge success">Completed</span></td>
-</tr>
-
-<tr>
-<td>20-May-2026</td>
-<td>Groundnut 🥜</td>
-<td>2.1 Tons/Acre</td>
-<td>10.5 Tons</td>
-<td><span class="badge success">Completed</span></td>
-</tr>
+</tbody>
 
 </table>
 
 </div>
 
 </div>
-
+<script src="js/history.js"></script>
 </body>
 </html>
