@@ -98,8 +98,4 @@ Dataset → Data Preprocessing → Random Forest Model → Model Training → Pr
 * Mobile application
 * Larger agricultural datasets
 
----
 
-## Developed By
-
-Rakshitha
