@@ -8,7 +8,7 @@ The system combines real-time weather information with a trained Random Forest M
 
 ---
 
-## 🚜 Problem Statement
+## Problem Statement
 
 Choosing the right crop is one of the biggest challenges faced by farmers. Crop selection depends on several environmental and soil-related factors such as:
 
