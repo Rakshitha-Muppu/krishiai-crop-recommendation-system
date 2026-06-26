@@ -48,14 +48,10 @@ def predict():
         N,
         P,
         K,
-        # float(data["temperature"]),
-        # float(data["humidity"]),
-        # ph,
-        # float(data["rainfall"])
-        28,
-        85,
+        float(data["temperature"]),
+        float(data["humidity"]),
         ph,
-        180
+        float(data["rainfall"])
 
     ]]
 
