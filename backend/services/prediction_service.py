@@ -11,9 +11,8 @@ def create_prediction(
     rainfall,
     humidity,
     land_acres,
-    land_type,
     recommended_crop,
-    predicted_yield
+    predicted_yield=None
 ):
 
     conn = get_connection()
@@ -33,11 +32,10 @@ def create_prediction(
         rainfall,
         humidity,
         land_acres,
-        land_type,
         recommended_crop,
         predicted_yield
     )
-    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
     """
 
     values = (
@@ -52,7 +50,6 @@ def create_prediction(
         rainfall,
         humidity,
         land_acres,
-        land_type,
         recommended_crop,
         predicted_yield
     )

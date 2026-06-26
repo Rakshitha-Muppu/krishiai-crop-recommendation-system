@@ -1,75 +1,123 @@
-# Agriculture Yield Prediction and Crop Recommendation System
+# 🌾 KrishiAI – Crop Recommendation System
 
 ## Project Overview
 
-This project is a Data, AI, and Cloud-based system designed to predict crop yield and recommend suitable crops based on agricultural conditions.
+KrishiAI is a Machine Learning-based web application that recommends the most suitable crop based on soil type and real-time weather conditions.
 
-The system uses machine learning techniques along with a data processing pipeline to analyze agricultural data and generate meaningful predictions.
+The system uses a Random Forest Machine Learning model trained on agricultural data. It automatically fetches weather information using the Open-Meteo API and stores user prediction history in a MySQL database.
 
-Users can either manually enter agricultural details or upload CSV files for analysis. The system processes the data, applies machine learning models, stores results in the cloud database, and displays predictions through a dashboard.
+---
 
 ## Problem Statement
 
-Farmers often lack data-driven insights regarding:
-
-* Expected crop production
-* Suitable crops for specific environmental conditions
-* Efficient utilization of agricultural resources
-
-This can lead to reduced productivity and poor crop planning decisions.
-
-## Proposed Solution
-
-The system provides a complete Data, AI, and Cloud solution by:
-
-* Collecting agricultural data through manual input or CSV upload
-* Cleaning and processing agricultural data
-* Applying machine learning models for crop recommendation and yield prediction
-* Storing prediction results in Azure SQL Database
-* Displaying insights through dashboards and visualizations
-
-## Project Architecture
-
-Frontend (React) → Backend API (Flask) → Machine Learning Models → Azure SQL Database
-
-Users provide agricultural data through manual input forms or CSV uploads. The backend processes the data, interacts with machine learning models, stores prediction history in Azure SQL Database, and returns results to the frontend dashboard.
-
-## Key Features
-
-* Manual agricultural data input
-* CSV dataset upload
-* Data cleaning and preprocessing
-* Crop recommendation
-* Crop yield prediction
-* Prediction history storage
-* Dashboard-based visualization
-
-## User Inputs
-
-### Manual Input
+Selecting the right crop is an important decision for farmers. Crop selection depends on several environmental factors such as:
 
 * Soil Type
 * Temperature
+* Humidity
 * Rainfall
+
+Without proper analysis, farmers may choose crops that are not suitable for their land or weather conditions, reducing productivity.
+
+---
+
+## Proposed Solution
+
+KrishiAI helps farmers by:
+
+* Accepting agricultural inputs from users.
+* Automatically retrieving real-time weather information.
+* Applying a Machine Learning model to recommend a suitable crop.
+* Storing prediction history in a MySQL database.
+
+---
+
+## Project Architecture
+
+Frontend (HTML, CSS, JavaScript)
+
+↓
+
+Flask Backend API
+
+↓
+
+Random Forest Machine Learning Model
+
+↓
+
+MySQL Database
+
+↓
+
+Prediction History
+
+---
+
+## Features
+
+* User Registration and Login
+* Real-Time Weather Integration (Open-Meteo API)
+* Crop Recommendation using Machine Learning
+* Prediction History
+* Responsive User Interface
+
+---
+
+## User Inputs
+
+The user provides:
+
+* Soil Type
+* Previous Crop
+* Season
 * Land Area
-* Crop Information
 
-### CSV File Upload
+The system automatically retrieves:
 
-* Agricultural datasets in CSV format for batch analysis and prediction
+* Temperature
+* Humidity
+* Rainfall
+* User Location
 
-## System Outputs
+---
 
-* Predicted Crop Yield
-* Recommended Crop
-* Data Insights Dashboard
-* Stored Prediction History
+## System Output
+
+The system recommends:
+
+* Best Suitable Crop
+
+---
+
+## Machine Learning
+
+### Dataset Features
+
+The model is trained using:
+
+* Nitrogen (N)
+* Phosphorus (P)
+* Potassium (K)
+* Temperature
+* Humidity
+* pH
+* Rainfall
+
+### Algorithm
+
+* Random Forest Classifier
+
+Model Accuracy:
+
+**99.32%**
+
+---
 
 ## Technologies Used
 
 ### Frontend
 
-* React
 * HTML
 * CSS
 * JavaScript
@@ -83,32 +131,87 @@ Users provide agricultural data through manual input forms or CSV uploads. The b
 
 * Pandas
 * NumPy
-* Scikit-Learn
+* Scikit-learn
+* Pickle
 
-### Database (Cloud)
+### Database
 
-* Azure SQL Database
+* MySQL
+
+### APIs
+
+* Open-Meteo Weather API
 
 ### Version Control
 
+* Git
 * GitHub
 
-## Data Pipeline Flow
+---
 
-Raw Data → Data Validation → Data Cleaning → Feature Engineering → Machine Learning Models → Prediction → Azure SQL Storage → Dashboard Visualization
+## Workflow
 
-## Expected Benefits
+User Input
 
-* Supports data-driven farming decisions
-* Improves crop planning and management
-* Helps estimate agricultural production
-* Demonstrates practical integration of Data, AI, and Cloud technologies
-* Demonstrates practical implementation of Data Engineering, Artificial Intelligence, and Cloud Computing concepts
+↓
+
+Weather API
+
+↓
+
+Soil Mapping (N, P, K, pH)
+
+↓
+
+Random Forest Model
+
+↓
+
+Crop Recommendation
+
+↓
+
+MySQL Database
+
+↓
+
+Prediction History
+
+---
+
+## Current Limitation
+
+The public dataset used for training contains only:
+
+* N
+* P
+* K
+* Temperature
+* Humidity
+* pH
+* Rainfall
+
+It does **not** contain Soil Type, Previous Crop, or Season.
+
+Therefore:
+
+* Soil Type is mapped to approximate N, P, K, and pH values.
+* Previous Crop and Season are currently stored in the database for future enhancement but are not used by the Machine Learning model.
+
+---
 
 ## Future Enhancements
 
-* Weather Impact Analysis
-* Real-Time Weather API Integration
-* Fertilizer Recommendation System
-* Mobile Application Support
-* Advanced Agricultural Analytics Dashboard
+* Fertilizer Recommendation
+* Crop Yield Prediction
+* Disease Detection
+* Better agricultural datasets containing crop rotation and seasonal information
+* Mobile Application
+
+---
+
+## Expected Benefits
+
+* Helps farmers choose suitable crops based on environmental conditions.
+* Demonstrates practical implementation of Machine Learning with Flask.
+* Integrates Machine Learning, REST APIs, MySQL, and Web Development into a complete application.

@@ -26,7 +26,6 @@
             <nav class="nav-links">
                 <a href="dashboard.html">Dashboard</a>
                 <a href="crop_recommendation.html" class="active">Crop Recommendation</a>
-                <a href="yield_prediction.html">Yield Prediction</a>
                 <a href="history.html">History</a>
             </nav>
 
@@ -63,18 +62,22 @@
                     <label>Rainfall (mm)</label>
                     <input type="number" id="rainfall" value="120" readonly>
                 </div>
-
                 <div class="form-group">
                     <label>Soil Type</label>
+
                     <select id="soil">
-                        <option>Select Soil Type</option>
+                        <option value="">Select Soil Type</option>
                         <option>Black Soil</option>
                         <option>Red Soil</option>
                         <option>Clay Soil</option>
                         <option>Loamy Soil</option>
                         <option>Sandy Soil</option>
+                        <option>Alluvial Soil</option>
+                        <option>Laterite Soil</option>
+
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label>Season</label>
 
@@ -83,11 +86,38 @@
                         <option>Kharif</option>
                         <option>Rabi</option>
                         <option>Zaid</option>
+                        <option>Whole Year</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Previous Crop</label>
-                    <input type="text" id="crop_input" placeholder="Enter previous crop">
+
+                    <select id="crop">
+
+                        <option value="">Select Previous Crop</option>
+                        <option>Rice</option>
+                        <option>Maize</option>
+                        <option>Chickpea</option>
+                        <option>Kidneybeans</option>
+                        <option>Pigeonpeas</option>
+                        <option>Mothbeans</option>
+                        <option>Mungbean</option>
+                        <option>Blackgram</option>
+                        <option>Lentil</option>
+                        <option>Pomegranate</option>
+                        <option>Banana</option>
+                        <option>Mango</option>
+                        <option>Grapes</option>
+                        <option>Watermelon</option>
+                        <option>Muskmelon</option>
+                        <option>Apple</option>
+                        <option>Orange</option>
+                        <option>Papaya</option>
+                        <option>Coconut</option>
+                        <option>Cotton</option>
+                        <option>Jute</option>
+                        <option>Coffee</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -95,14 +125,7 @@
                     <input type="number" id="land_acres" placeholder="Enter land acres">
                 </div>
 
-                <div class="form-group">
-                    <label>Land Type</label>
-                    <select id="land_type">
-                        <option value="">Select Land Type</option>
-                        <option>Owned</option>
-                        <option>Leased</option>
-                    </select>
-                </div>
+
             </div>
 
             <button class="btn" onclick="recommendCrop()">

@@ -50,12 +50,11 @@ window.onload = async function () {
                 document.createElement("tr");
 
             row.innerHTML = `
-                <td>${item.created_at}</td>
-                <td>${item.recommended_crop}</td>
-                <td>${item.predicted_yield} Tons/Acre</td>
-                <td>${item.location}</td>
-                <td>${item.season}</td>
-            `;
+<td>${item.created_at}</td>
+<td>${item.recommended_crop}</td>
+<td>${item.location}</td>
+<td>${item.season}</td>
+`;
 
             table.appendChild(row);
 

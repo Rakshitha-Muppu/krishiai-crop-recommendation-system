@@ -290,7 +290,7 @@ async function loadStates() {
     try {
 
         const response =
-            await fetch("./data/state_districts.json");
+            await fetch("./data/modern_states_districts.json");
 
         stateDistricts =
             await response.json();

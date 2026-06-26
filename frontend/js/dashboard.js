@@ -12,8 +12,9 @@ async function loadWeatherDashboard() {
         const longitude = geoData.results[0].longitude;
 
         const response = await fetch(
-            `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,precipitation`
+            `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m&hourly=precipitation`
         );
+
         const data = await response.json();
 
         document.getElementById("temperatureCard").innerText =
@@ -22,8 +23,11 @@ async function loadWeatherDashboard() {
         document.getElementById("humidityCard").innerText =
             data.current.relative_humidity_2m + "%";
 
+        // Take highest rainfall value from forecast
+        const rainfall = Math.max(...data.hourly.precipitation);
+
         document.getElementById("rainfallCard").innerText =
-            data.current.precipitation + " mm";
+            rainfall + " mm";
 
         // Save in localStorage for other pages
         localStorage.setItem(
@@ -38,8 +42,10 @@ async function loadWeatherDashboard() {
 
         localStorage.setItem(
             "rainfall",
-            data.current.precipitation
+            rainfall
         );
+
+
 
     } catch (error) {
         console.error("Weather Error:", error);
@@ -57,13 +63,13 @@ async function loadRecentPredictions() {
         const table = document.getElementById("recentPredictionsTable");
         table.innerHTML = ""; // Clear old rows
 
-        data.forEach(item => {
+        data.slice(0, 5).forEach(item => {
             const row = document.createElement("tr");
             row.innerHTML = `
-                <td>${item.created_at}</td>
-                <td>${item.recommended_crop}</td>
-                <td>${item.predicted_yield} Tons/Acre</td>
-            `;
+<td>${item.created_at}</td>
+<td>${item.recommended_crop}</td>
+<td>${item.season}</td>
+`;
             table.appendChild(row);
         });
 

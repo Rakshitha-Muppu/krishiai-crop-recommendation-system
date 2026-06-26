@@ -151,11 +151,12 @@ font-size:14px;
 /* ACTION BUTTONS */
 
 .actions{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
+display:flex;
+justify-content:center;
 margin-bottom:20px;
 }
+
+
 
 .action-btn{
 background:#1a4d2e;
@@ -167,6 +168,9 @@ font-size:16px;
 font-weight:500;
 cursor:pointer;
 transition:0.3s;
+width:500px;
+max-width:100%;
+
 }
 
 .action-btn:hover{
